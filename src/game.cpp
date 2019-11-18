@@ -3,7 +3,6 @@
 #include "game.h"
 #include "graphics.h"
 #include "input.h"
-
 /**
  * Game class
  * Holds game loop logic
@@ -30,6 +29,9 @@ void Game::gameLoop() {
     Graphics graphics;
     Input input;
     SDL_Event event;
+
+    Sprite sprite = Sprite(graphics, "assets/crystals/yellow.png", { 0, 0 }, { 128, 128 }, { 100, 100 });
+    this->player = Character(sprite);
 
     int LAST_UPDATE_TIME = SDL_GetTicks();
     // Start Game Loop
@@ -60,15 +62,20 @@ void Game::gameLoop() {
         this->update(std::min(ELAPSED_TIME_MS, MAX_FRAME_TIME));
 
         LAST_UPDATE_TIME = CURRENT_TIME_MS;
+
+        this->draw(graphics);
     }
 }
 
 void Game::update(float elapsedTime) {
-
 }
 
 void Game::draw(Graphics &graphics) {
+    graphics.clear();
 
+    this->player.getSprite()->draw(graphics, { 100, 100 });
+
+    graphics.flip();
 }
 
 
