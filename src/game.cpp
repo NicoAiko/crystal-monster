@@ -30,8 +30,10 @@ void Game::gameLoop() {
     Input input;
     SDL_Event event;
 
-    Sprite sprite = Sprite(graphics, "assets/crystals/yellow.png", { 0, 0 }, { 128, 128 }, { 100, 100 });
+    AnimatedSprite sprite = AnimatedSprite(graphics, "assets/crystals/yellow.png", { 0, 0 }, { 128, 128 }, { 100, 100 }, 100);
     this->player = Character(sprite);
+    this->player.getSprite()->setupAnimations();
+    this->player.getSprite()->playAnimation("Run");
 
     int LAST_UPDATE_TIME = SDL_GetTicks();
     // Start Game Loop
@@ -68,6 +70,7 @@ void Game::gameLoop() {
 }
 
 void Game::update(float elapsedTime) {
+    this->player.getSprite()->update(elapsedTime);
 }
 
 void Game::draw(Graphics &graphics) {

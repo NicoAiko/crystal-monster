@@ -1,7 +1,9 @@
 #include "graphics.h"
+#include "globals.h"
+
 
 Graphics::Graphics() {
-	SDL_CreateWindowAndRenderer(1280, 720, 0, &this->window, &this->renderer);
+	SDL_CreateWindowAndRenderer(globals::SCREEN_WIDTH, globals::SCREEN_HEIGHT, 0, &this->window, &this->renderer);
 	SDL_SetWindowTitle(this->window, "Crystal Monsters - Working Title");
 }
 

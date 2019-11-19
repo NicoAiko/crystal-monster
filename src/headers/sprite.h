@@ -12,16 +12,18 @@
  */
 
 class Sprite {
-  public:
+public:
     Sprite();
     Sprite(Graphics &graphics, const std::string &filePath, Point source, Size size, FloatPoint position);
     virtual ~Sprite();
     virtual void update();
     void draw(Graphics &graphics, Point point);
-  private:
+
+protected:
     SDL_Rect sourceRect{};
     SDL_Texture *spriteSheet{};
 
+private:
     FloatPoint position{};
 };
 

@@ -6,12 +6,12 @@
 
 Character::Character() = default;
 
-Character::Character(Sprite &sprite) :
+Character::Character(AnimatedSprite &sprite) :
     sprite(&sprite)
 {}
 
 Character::~Character() = default;
 
-Sprite* Character::getSprite() const {
+AnimatedSprite* Character::getSprite() const {
     return this->sprite;
 }

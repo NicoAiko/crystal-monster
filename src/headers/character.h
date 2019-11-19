@@ -5,17 +5,17 @@
 #ifndef CRYSTAL_MONSTERS_CHARACTER_H
 #define CRYSTAL_MONSTERS_CHARACTER_H
 
-#include "sprite.h"
+#include "animatedSprite.h"
 
 class Character {
 public:
     Character();
-    Character(Sprite &sprite);
+    Character(AnimatedSprite &sprite);
     virtual ~Character();
 
-    Sprite* getSprite() const;
+    AnimatedSprite* getSprite() const;
 private:
-    Sprite *sprite{};
+    AnimatedSprite *sprite{};
 };
 
 #endif //CRYSTAL_MONSTERS_CHARACTER_H

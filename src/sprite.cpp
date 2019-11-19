@@ -3,6 +3,7 @@
 //
 
 #include "sprite.h"
+#include "globals.h"
 
 Sprite::Sprite() = default;
 
@@ -23,7 +24,7 @@ Sprite::Sprite(Graphics &graphics, const std::string &filePath, Point source, Si
 Sprite::~Sprite() = default;
 
 void Sprite::draw(Graphics &graphics, Point point) {
-    SDL_Rect destinationRectangle = { point.x, point.y, this->sourceRect.w, this->sourceRect.h };
+    SDL_Rect destinationRectangle = { point.x, point.y, static_cast<int>(this->sourceRect.w * globals::SPRITE_SCALE), static_cast<int>(this->sourceRect.h * globals::SPRITE_SCALE) };
 
     graphics.blitSurface(this->spriteSheet, &this->sourceRect, &destinationRectangle);
 }
