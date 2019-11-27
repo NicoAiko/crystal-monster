@@ -18,7 +18,8 @@ Game::Game() {
 }
 
 Game::~Game() {
-
+    IMG_Quit();
+    SDL_Quit();
 }
 
 void Game::Run() {
@@ -51,6 +52,8 @@ void Game::gameLoop() {
                 input.keyUpEvent(event);
             }
             else if (event.type == SDL_QUIT) {
+                IMG_Quit();
+                SDL_Quit();
                 return;
             }
         }

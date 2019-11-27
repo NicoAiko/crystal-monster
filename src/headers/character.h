@@ -14,6 +14,7 @@ public:
     virtual ~Character();
 
     AnimatedSprite* getSprite() const;
+
 private:
     AnimatedSprite *sprite{};
 };
